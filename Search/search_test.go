@@ -94,3 +94,83 @@ func TestBinarySearchRecursive(t *testing.T) {
 		})
 	}
 }
+
+type CrystalSkullTestCase struct {
+	name string
+	arr []bool
+	expected int
+}
+
+func produce_crystal_skull_cases() []CrystalSkullTestCase {
+	return []CrystalSkullTestCase{
+		{
+			name:	"breaks in middle",
+			arr: []bool{
+				false, false, false, 
+				false, false, false,
+				false, false, false,
+				false, true, true,
+				true, true, true,
+				true, true, true, 
+			},
+			expected:	10,
+		},
+		{
+			name:	"breaks at start",
+			arr: []bool{
+				true, true, true, 
+				true, true, true,
+				true, true, true,
+				true, true, true,
+				true, true, true,
+				true, true, true, 
+			},
+			expected:	0,
+		},
+		{
+			name:	"breaks at end",
+			arr: []bool{
+				false, false, false, 
+				false, false, false,
+				false, false, false,
+				false, false, false,
+				false, false, false,
+				false, false, true, 
+			},
+			expected:	17,
+		},
+		{
+			name:	"No Breaks",
+			arr: []bool{
+				false, false, false, 
+				false, false, false,
+				false, false, false,
+				false, false, false,
+				false, false, false,
+				false, false, false, 
+			},
+			expected:	-1,
+		},
+		{
+			name:	"empty array",
+			arr: []bool{},
+			expected:	-1,
+		},
+	}
+}
+
+func TestFindBreak(t *testing.T) {
+	for _, c := range produce_crystal_skull_cases() {
+		t.Run(c.name, func(t *testing.T) {
+			actual := FindBreak(c.arr)
+			if actual != c.expected {
+				t.Errorf(
+					"FindBreak(%v) = %d want %d",
+					c.arr,
+					actual,
+					c.expected,
+				)
+			}
+		})
+	}
+} 
