@@ -33,3 +33,29 @@ func TestBubbleSort(t *testing.T) {
 		}
 	}
 }
+
+func TestQuickSort(t *testing.T) {
+	for _, c := range GetSharedTestCases() {
+		original := c.arr
+		QuickSort(c.arr)
+		if !slices.Equal(c.arr, c.expected) {
+			t.Errorf(
+				"QuickSort(%v) = %v; want %v\n",
+				original, c.arr, c.expected,
+			)
+		}
+	}
+}
+
+func TestMergeSort(t *testing.T) {
+	for _, c := range GetSharedTestCases() {
+		original := c.arr
+		MergeSort(c.arr)
+		if !slices.Equal(c.arr, c.expected) {
+			t.Errorf(
+				"MergeSort(%v) = %v; want %v\n",
+				original, c.arr, c.expected,
+			)
+		}
+	}
+}
