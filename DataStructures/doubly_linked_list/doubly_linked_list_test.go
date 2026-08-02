@@ -1,6 +1,8 @@
 package doubly_linked_list
 
-import "testing"
+import (
+	"testing"
+)
 
 func assertPointers[T comparable ](
 	t *testing.T,
@@ -159,7 +161,7 @@ func TestInsertAt(t *testing.T) {
 	l.Append(10)
 	l.Append(30)
 	l.Append(60)
-	l.InsertAt(99, 1)
+	l.InsertAt(1, 99)
 
 	assertPointers(t, l, []int{10, 99, 30, 60})
 }
