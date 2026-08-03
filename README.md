@@ -3,13 +3,13 @@ The purpose of this project is to reimplement some classic algorithmns and data 
 
 ## Topics:
 ~~Search:~~ ~~linear search~~, ~~binary search~~, ~~2 crystal balls problem~~
-Sort: ~~bubble sort~~, linked lists, Queue, Stack, ~~Quicksort~~, ~~MergeSort~~
-Arrays: Array List, Ring Buffer
+~~Sort:~~ ~~bubble sort~~, ~~linked lists~~, ~~Queue~~, ~~Stack~~, ~~Quicksort~~, ~~MergeSort~~
+Arrays: Ring Buffer
 Recursion: Path Finding
-Doubly Linked List
-Tree Traversal: Breadth First Search, Depth First Search
+~~Doubly Linked List~~
 Heaps
 Tries
-Graphs: Djikstra's Algorithmn
 Maps: Lru Cache
+Tree Traversal: Breadth First Search, Depth First Search
+Graphs: Djikstra's Algorithmn
 
