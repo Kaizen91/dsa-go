@@ -59,8 +59,34 @@ func (g *Graph[T]) BFS() []T {
 	return path
 }
 
+func (g *Graph[T]) walkRecursive(
+	curr T,
+	seen map[T]bool,
+	path *[]T,
+) bool {
+	*path = append(*path, curr)
+	if curr == g.end {
+		return true
+	seen[curr] = true
+	} else {
+		for _, edge := range g.edges[curr] {
+			if seen[edge.v] {
+				return false
+			}
+			if g.walkRecursive(edge.v, seen, path) {
+				return true
+			}
+		}
+	}
+	*path = (*path)[:len(*path)-1]
+	return false
+}
+
 func (g *Graph[T]) DFS() []T {
-	return nil
+	seen := make(map[T]bool)
+	path := &[]T{}
+	g.walkRecursive(g.start, seen, path)
+	return *path
 }
 
 func (g *Graph[T]) AddEdge(e Edge[T]) {
