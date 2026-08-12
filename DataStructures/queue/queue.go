@@ -12,6 +12,14 @@ type Queue[T any] struct {
 	Length int
 }
 
+func New[T any]() *Queue[T]{
+	return &Queue[T]{
+		Head: nil,
+		Tail: nil,
+		Length: 0,
+	}
+}
+
 func (q *Queue[T]) Push(value T) {
 	node := &Node[T]{Value: value, Prev: nil, Next: nil}
 	if q.Length == 0 {

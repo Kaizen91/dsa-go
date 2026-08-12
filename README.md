@@ -5,7 +5,6 @@ The purpose of this project is to reimplement some classic algorithmns and data 
 ~~Search:~~ ~~linear search~~, ~~binary search~~, ~~2 crystal balls problem~~
 ~~Sort:~~ ~~bubble sort~~, ~~linked lists~~, ~~Queue~~, ~~Stack~~, ~~Quicksort~~, ~~MergeSort~~
 ~~Arrays: Ring Buffer~~
-Recursion: Path Finding
 ~~Doubly Linked List~~
 Heaps
 Tries
