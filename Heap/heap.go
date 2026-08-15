@@ -1,25 +1,23 @@
 package heap
 
 import (
-	"fmt"
 	"container/heap"
+	"cmp"
 )
 
-type Item[T any] struct {
+type Item[T cmp.Ordered] struct {
 	Value T
-	Priority int
 }
 
-type PriorityQueue[T any] []*Item[T]
+type PriorityQueue[T cmp.Ordered] []*Item[T]
 
 func (pq PriorityQueue[T]) Len() int {
 	return len(pq)
 }
 
 func (pq PriorityQueue[T]) Less(i, j int) bool {
-	return pq[i].Priority < pq[j].Priority
+	return pq[i].Value < pq[j].Value
 }
-
 
 func (pq PriorityQueue[T]) Swap(i, j int) {
 	pq[i], pq[j] = pq[j], pq[i]
@@ -39,8 +37,22 @@ func (pq *PriorityQueue[T]) Pop() any {
 	return item
 }
 
+func (pq *PriorityQueue[T]) Init() {
+	heap.Init(pq)
+}
 
+func (pq *PriorityQueue[T]) PushItem(v T) {
+	item := &Item[T]{
+		Value: v,
+	}
+	heap.Push(pq, item)
+}
 
-type Interface interface {
-	
+func (pq *PriorityQueue[T]) PopItem() (T, bool) {
+	if pq.Len() == 0 {
+		var zero T
+		return zero, false
+	}
+	item := heap.Pop(pq).(*Item[T])
+	return item.Value, true
 }

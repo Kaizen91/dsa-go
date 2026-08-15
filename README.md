@@ -6,9 +6,9 @@ The purpose of this project is to reimplement some classic algorithmns and data 
 ~~Sort:~~ ~~bubble sort~~, ~~linked lists~~, ~~Queue~~, ~~Stack~~, ~~Quicksort~~, ~~MergeSort~~
 ~~Arrays: Ring Buffer~~
 ~~Doubly Linked List~~
-Heaps
+~~Heaps~~
 Tries
 Maps: Lru Cache
-Tree Traversal: ~Breadth First Search~, ~Depth First Search~
+~~Tree Traversal~~: ~Breadth First Search~, ~Depth First Search~
 Graphs: Djikstra's Algorithmn
 
