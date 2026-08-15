@@ -5,10 +5,11 @@ import (
 
 type Edge[T comparable] struct {
 	u, v T
+	weight int
 }
 
-func NewEdge[T comparable](u, v T) *Edge[T] {
-	return &Edge[T]{u: u, v: v}
+func NewEdge[T comparable](u, v T, w int) *Edge[T] {
+	return &Edge[T]{u: u, v: v, weight: w}
 }
 
 type Graph[T comparable] struct {

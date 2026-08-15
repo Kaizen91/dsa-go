@@ -15,14 +15,14 @@ type testCase[T comparable] struct {
 
 func GenerateSharedTestCases() []testCase[int] {
 	graph := New(0,5)
-	graph.AddEdge(Edge[int]{u: 0, v: 1})
-	graph.AddEdge(Edge[int]{u: 0, v: 4})
-	graph.AddEdge(Edge[int]{u: 1, v: 4})
-	graph.AddEdge(Edge[int]{u: 1, v: 2})
-	graph.AddEdge(Edge[int]{u: 2, v: 3})
-	graph.AddEdge(Edge[int]{u: 2, v: 5})
-	graph.AddEdge(Edge[int]{u: 3, v: 5})
-	graph.AddEdge(Edge[int]{u: 5, v: 4})
+	graph.AddEdge(Edge[int]{u: 0, v: 1, weight: 0})
+	graph.AddEdge(Edge[int]{u: 0, v: 4, weight: 0})
+	graph.AddEdge(Edge[int]{u: 1, v: 4, weight: 0})
+	graph.AddEdge(Edge[int]{u: 1, v: 2, weight: 0})
+	graph.AddEdge(Edge[int]{u: 2, v: 3, weight: 0})
+	graph.AddEdge(Edge[int]{u: 2, v: 5, weight: 0})
+	graph.AddEdge(Edge[int]{u: 3, v: 5, weight: 0})
+	graph.AddEdge(Edge[int]{u: 5, v: 4, weight: 0})
 	return []testCase[int]{
 		{
 			name: "basic graph",
