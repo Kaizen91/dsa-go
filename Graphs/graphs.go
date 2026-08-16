@@ -1,24 +1,26 @@
 package graphs
 import (
 	"github.com/Kaizen91/DSA-Go/DataStructures/queue"
+	"github.com/Kaizen91/DSA-Go/Heap"
+	"cmp"
 )
 
-type Edge[T comparable] struct {
+type Edge[T cmp.Ordered] struct {
 	u, v T
 	weight int
 }
 
-func NewEdge[T comparable](u, v T, w int) *Edge[T] {
+func NewEdge[T cmp.Ordered](u, v T, w int) *Edge[T] {
 	return &Edge[T]{u: u, v: v, weight: w}
 }
 
-type Graph[T comparable] struct {
+type Graph[T cmp.Ordered] struct {
 	start T
 	end T
 	edges map[T][]Edge[T]
 }
 
-func New[T comparable](start, end T) *Graph[T] {
+func New[T cmp.Ordered](start, end T) *Graph[T] {
 	return &Graph[T]{
 		start: start,
 		end: end,
@@ -88,6 +90,14 @@ func (g *Graph[T]) DFS() []T {
 	path := &[]T{}
 	g.walkRecursive(g.start, seen, path)
 	return *path
+}
+
+func (g *Graph[T]) Dijkstra() []T {
+	pq := make(heap.PriorityQueue[T], 0)
+	pq.Init()
+	pq.PopItem()
+	var zero []T
+	return zero
 }
 
 func (g *Graph[T]) AddEdge(e Edge[T]) {
