@@ -3,6 +3,7 @@ import (
 	"github.com/Kaizen91/DSA-Go/DataStructures/queue"
 	"github.com/Kaizen91/DSA-Go/Heap"
 	"cmp"
+	"math"
 )
 
 type Edge[T cmp.Ordered] struct {
@@ -96,11 +97,30 @@ func (g *Graph[T]) Dijkstra() []T {
 	pq := make(heap.PriorityQueue[T], 0)
 	pq.Init()
 	parent := make(map[T]T)
-	pq.PushItem(g.start)
-	for pq.Len() {
+	distances := make(map[T]int)
+	for node := range g.edges {
+		distances[node] = math.MaxInt
 	}
-	var zero []T
-	return zero
+	distances[g.start] = 0
+	pq.PushItem(g.start)
+
+	for pq.Len() > 0 {
+		u, _ := pq.PopItem()
+		for _, edge := range g.edges[u] {
+			newDist := distances[edge.u] + edge.weight
+			if newDist < distances[edge.v] {
+				distances[edge.v] = newDist
+				pq.PushItem(edge.v)
+				parent[edge.v] = u
+			}
+		}
+	}
+	var path []T
+	for curr := g.end; curr != g.start; curr = parent[curr] {
+		path = append([]T{curr}, path...)
+	}
+	path = append([]T{g.start}, path...)
+	return path
 }
 
 func (g *Graph[T]) AddEdge(e Edge[T]) {
