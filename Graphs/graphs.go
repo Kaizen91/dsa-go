@@ -95,7 +95,10 @@ func (g *Graph[T]) DFS() []T {
 func (g *Graph[T]) Dijkstra() []T {
 	pq := make(heap.PriorityQueue[T], 0)
 	pq.Init()
-	pq.PopItem()
+	parent := make(map[T]T)
+	pq.PushItem(g.start)
+	for pq.Len() {
+	}
 	var zero []T
 	return zero
 }
