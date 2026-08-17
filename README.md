@@ -10,5 +10,5 @@ The purpose of this project is to reimplement some classic algorithmns and data 
 Tries
 Maps: Lru Cache
 ~~Tree Traversal~~: ~Breadth First Search~, ~Depth First Search~
-Graphs: Djikstra's Algorithmn
+Graphs: ~Djikstra's Algorithmn~
 
