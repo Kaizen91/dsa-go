@@ -85,6 +85,23 @@ func (ll *DoublyLinkedList[T]) Get(index int) (T, error) {
 	return curr.Value, nil
 }
 
-
-
-
+func (ll *DoublyLinkedList[T]) DeleteNode(node *Node[T]) {
+	if node == nil || ll == nil {
+		return
+	}
+	if node == ll.Head {
+		ll.Head = node.Next
+		ll.Head.Prev = nil
+	}
+	if node.Next != nil {
+		node.Next.Prev = node.Prev
+	}
+	if node == ll.Tail {
+		ll.Tail = node.Prev
+		ll.Tail.Next = nil
+	}
+	if node.Prev != nil {
+		node.Prev.Next = node.Next
+	}
+	ll.Length--
+}
